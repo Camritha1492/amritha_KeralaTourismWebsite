@@ -97,20 +97,20 @@ function ShowPwdStrength()
     else if(stronger.test(password.value.trim()))
     {
         console.log("Stronger");
-        meter.setAttribute("value","8");
+        meter.setAttribute("value","4");
         para.innerText = "Stronger; You can do better";
         return false;
     }
     else if(slightlystrong.test(password.value.trim()))
     {
-        meter.setAttribute("value","6");
+        meter.setAttribute("value","3");
         console.log("Slightly better");
         para.innerText = "Slighly better; You can do much better";
         return false;
     }
     else if(weakReg.test(password.value.trim()))
     {
-        meter.setAttribute("value","4");
+        meter.setAttribute("value","2");
         console.log("Weak");
         para.innerText = "Weak";
         return false;
