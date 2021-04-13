@@ -88,7 +88,7 @@ function ShowPwdStrength()
     meter.removeAttribute("hidden","true");
     if(passreg.test(password.value.trim()))
     {
-        meter.setAttribute("value","5");
+        meter.setAttribute("value","10");
         console.log("Strongest");
         para.innerText = "Strongest! You did it";
        
@@ -97,20 +97,20 @@ function ShowPwdStrength()
     else if(stronger.test(password.value.trim()))
     {
         console.log("Stronger");
-        meter.setAttribute("value","4");
+        meter.setAttribute("value","8");
         para.innerText = "Stronger; You can do better";
         return false;
     }
     else if(slightlystrong.test(password.value.trim()))
     {
-        meter.setAttribute("value","3");
+        meter.setAttribute("value","6");
         console.log("Slightly better");
         para.innerText = "Slighly better; You can do much better";
         return false;
     }
     else if(weakReg.test(password.value.trim()))
     {
-        meter.setAttribute("value","2");
+        meter.setAttribute("value","4");
         console.log("Weak");
         para.innerText = "Weak";
         return false;

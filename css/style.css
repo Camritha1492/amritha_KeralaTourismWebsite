@@ -11,6 +11,21 @@
 height: 50%
 }
 
-/* #password-strength-meter{
+#password-strength-meter{
+    meter::-webkit-meter-optimum-value {
+        box-shadow: 0 5px 5px -5px #999 inset;
+        background-image: linear-gradient(
+          90deg, 
+          #8bcf69 3%, 
+          #e6d450 15%,
+          #f28f68 15%,
+          #f28f68 55%,
+          #cf82bf 55%,
+          #cf82bf 95%,
+          #719fd1 95%,
+          #719fd1 100%
+        );
+        background-size: 100% 100%;
+      }
 
-} */
+}
