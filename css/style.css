@@ -1,0 +1,12 @@
+*{
+    padding:0px;
+    margin:0px;
+}
+
+.myMargin{
+    margin: 50px;
+}
+
+.carousel-item {
+height: 50%
+}
