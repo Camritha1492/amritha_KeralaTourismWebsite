@@ -5,13 +5,11 @@ function nonEmptyLogin(){
     if(email.value.trim()=="")
     {
         alert("Email cannot be empty");
-        //email.style.border="3px solid red;";
         return false;
     }
     else if(password.value.trim()=="")
     {
         alert("Password cannot be empty");
-        //password.style.border = "3px solid red;";
         return false;
     }
     else if(!checkEmailFormat(email))
@@ -79,47 +77,47 @@ function checkPasswordFormat(password)
 function ShowPwdStrength()
 {
     let passreg = /^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*_|><])(?=.*[A-Z]).{8,16}$/;
-    let weakReg = /^(?=.*[a-z])(?=.*[A-Z]).{1,12}$/;
-    let slightlystrong = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,12}$/;
-    let stronger = /^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*_|><])(?=.*[A-Z]).{4,16}$/;
+    let weakReg = /^(?=.*[a-z]).{1,4}$/;
+    let slightlystrong = /^(?=.*[a-z])(?=.*[A-Z]).{4,12}$/;
+    let stronger = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/;
 
-   // let meter = document.getElementById("password-strength-meter");
+    let meter = document.getElementById("password-strength-meter");
     let para = document.getElementById("password-strength-text");
     let password = document.getElementById("inputPassword4");
-   //meter.setAttribute("hidden", "false");
-   if(weakReg.test(password.value.trim()))
+    
+    meter.removeAttribute("hidden","true");
+    if(passreg.test(password.value.trim()))
     {
-        console.log("Weak");
-        para.innerText = "Weak";
-        // meter.value = "1";
-        // meter.style.background = "red";
-        // meter[value="1"]::-webkit-meter-optimum-value { background: red; }
-        // meter[value="1"]::-moz-meter-bar { background: red; }
-    }
-    else if(slightlystrong.test(password.value.trim()))
-    {
-        console.log("Slightly better");
-        para.innerText = "Slighly better; You can do much better";
-        // meter.value = "2";
-        // meter[value="2"]::-webkit-meter-optimum-value { background: yellow; }
-        // meter[value="2"]::-moz-meter-bar { background: yellow; }
+        meter.setAttribute("value","5");
+        console.log("Strongest");
+        para.innerText = "Strongest! You did it";
+       
+        return true;
     }
     else if(stronger.test(password.value.trim()))
     {
         console.log("Stronger");
+        meter.setAttribute("value","4");
         para.innerText = "Stronger; You can do better";
-        // meter.value = "3";
-        // meter[value="3"]::-webkit-meter-optimum-value { background: orange; }
-        // meter[value="3"]::-moz-meter-bar { background: orange; }
+        return false;
     }
-    else if(passreg.test(password.value.trim()))
+    else if(slightlystrong.test(password.value.trim()))
     {
-        console.log("Strongest");
-        para.innerText = "Strongest! You did it";
-        // meter.value = "4";
-        // meter[value="4"]::-webkit-meter-optimum-value { background: green; }
-        // meter[value="4"]::-moz-meter-bar { background: green; }
+        meter.setAttribute("value","3");
+        console.log("Slightly better");
+        para.innerText = "Slighly better; You can do much better";
+        return false;
     }
+    else if(weakReg.test(password.value.trim()))
+    {
+        meter.setAttribute("value","2");
+        console.log("Weak");
+        para.innerText = "Weak";
+        return false;
+    }
+
+
+
 }
 
 
